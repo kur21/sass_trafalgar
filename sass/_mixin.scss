@@ -1,0 +1,21 @@
+@mixin generateDots($size, $spacing, $columns, $color: $primary-color) {
+   width: $size;
+   height: $size;
+   border-radius: 100rem;
+   background-color: $color;
+   $value: ();
+   @for $i from 0 to $columns {
+      @for $j from 0 to $columns {
+         $x: $i * $spacing;
+         $y: $j * $spacing;
+         $theShadow: $x $y $color;
+         $value: append($value, $theShadow, comma)
+      }
+   }
+   box-shadow: $value;
+}
+
+.dots {
+   margin: 200px;
+   @include generateDots(10px, 20px, 5, #97C3F9)
+}

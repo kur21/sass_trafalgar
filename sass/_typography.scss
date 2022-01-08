@@ -1,0 +1,55 @@
+body {
+   font-family: $font;
+   font-size: 16px;
+   font-weight: 300;
+   color: $gray;
+   line-height: 1;
+   overflow-x: hidden;
+}
+h1,h2,h3,h4,h5 {
+   color: $black;
+}
+.global-heading {
+   --heading-color: black;
+   font-weight: 700;
+   font-size: 36px;
+   line-height: 156%;
+   padding-bottom: 26px;
+   margin-bottom: 30px;
+   position: relative;
+   color: var(--heading-color);
+   &:before {
+      content: '';
+      position: absolute;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 56px;
+      height: 2px;
+      background-color: var(--heading-color);
+   }
+   &--center {
+      text-align: center;
+      &:before {
+         left: 50%;
+         transform: translateX(-50%);
+      }
+   }
+}
+.global-text {
+   font-size: 18px;
+   line-height: 167%;
+}
+@media screen and (max-width: 1023.98px) {
+   .global-heading {
+      font-size: 30px;
+   }
+}
+@media screen and (max-width: 767.98px) {
+   .global-heading {
+      font-size: 26px;
+   }
+   .global-text {
+      font-size: 16px;
+   }
+}

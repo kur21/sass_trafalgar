@@ -1,0 +1,123 @@
+.menu {
+   display: flex;
+   align-items: center;
+   gap: 0 40px;
+   &-link {
+      color: inherit;
+      font-size: 18px;
+      font-weight: 400;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+         color: $black;
+      }
+   }
+   &-item.active .menu-link {
+      color: $black;
+      font-weight: 700;
+   }
+   &-toggle {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      &-icon {
+         position: relative;
+         width: 30px;
+         height: 2px;
+         border-radius: 100rem;
+         background-color: $black;
+         transition: all 0.2s;
+         &:before,
+         &:after {
+            content: "";
+            position: absolute;
+            transition: all 0.2s;
+            width: 30px;
+            height: 2px;
+            border-radius: 100rem;
+            background-color: $black;
+         }
+         &:before {
+            top: -7px;
+         }
+         &:after {
+            top: 7px;
+         }
+      }
+      &.is-active .menu-toggle-icon {
+         background-color: transparent;
+         &:before,
+         &:after {
+            top: 0;
+            background-color: white;
+         }
+         &:before {
+            transform: rotate(135deg);
+         }
+         &:after {
+            transform: rotate(-135deg);
+         }
+      }
+   }
+   &-bg {
+      width: 20px;
+      height: 20px;
+      border-radius: 100rem;
+      background-color: $primary-color;
+      position: fixed;
+      right: 25px;
+      z-index: 0;
+      transform: scale(0);
+      transition: all 0.7s ease-in-out;
+      &.is-active {
+         transform: scale(100);
+      }
+   }
+   @media screen and (max-width: 767.98px) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 9;
+      flex-direction: column;
+      padding-top: 100px;
+      transform: translateX(110%);
+      opacity: 0;
+      transition: all 0.7s ease;
+      &.is-active {
+         transform: translateX(0);
+         opacity: 1;
+      }
+      &-item {
+         width: 100%;
+         text-align: center;
+         transition: all 0.8s ease;
+         transform: translateX(110%);
+         &:nth-child(2) {
+            transition-delay: .1s;
+         }
+         &:nth-child(3) {
+            transition-delay: .2s;
+         }
+         &:nth-child(4) {
+            transition-delay: .3s;
+         }
+         &:nth-child(5) {
+            transition-delay: .4s;
+         }
+         &.is-active {
+            transform: translateX(0);
+         }
+      }
+      &-link {
+         color: white;
+         display: block;
+         padding: 15px 25px;
+         text-transform: uppercase;
+      }
+      &-toggle {
+         display: inline-flex;
+      }
+   }
+}
